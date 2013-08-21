@@ -6,11 +6,11 @@ require 'proximity/version'
 Gem::Specification.new do |spec|
   spec.name          = "proximity"
   spec.version       = Proximity::VERSION
-  spec.authors       = ["Adam Hunter"]
-  spec.email         = ["adamhunter@tma1.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.authors       = ["Adam Hunter", "Zach Colon"]
+  spec.email         = ["adamhunter@me.com", "zcolon80@gmail.com"]
+  spec.description   = %q[Rack::Proxy router using Journey]
+  spec.summary       = %q[Proximity provides a router to applications utilizing Rack::Proxy to coordinate the source and target of a request.]
+  spec.homepage      = "https://github.com/adamhunter/proximity"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
