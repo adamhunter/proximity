@@ -29,6 +29,12 @@ end
 
 # proxies.rb
 MyProxy.routes.draw do
+  route 'example' => 'example.com/api' do
+    proxy 'active'                => 'accounts/active'
+    proxy 'accounts'              => same, formats %w[json csv]
+    proxy 'accounts/:account_id'  => same
+    proxy 'crazy/:id/:account_id' => 'fluffy/kitties/:id-:account_id'
+  end
 end
 ```
 
