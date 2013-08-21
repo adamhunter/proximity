@@ -1,5 +1,6 @@
 require 'uri'
 require 'action_dispatch/journey'
+require 'active_support/core_ext/string/starts_ends_with'
 
 require "proximity/version"
 require "proximity/configuration"
