@@ -2,6 +2,16 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'proximity'
 require 'rack/proxy'
 require 'pry'
+require 'simplecov'
+require 'coveralls'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+
+SimpleCov.start
+Coveralls.wear!
 
 class SpecProxy < Rack::Proxy
   include Proximity
