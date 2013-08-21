@@ -4,6 +4,12 @@
 [`Journey`](https://github.com/rails/journey) for routing.  `Journey` is
 vendored into `ActionPack` as of [`Rails`](https://github.com/rails/rails/tree/master/actionpack/lib/action_dispatch/journey)4.
 
+[![Gem Version](https://badge.fury.io/rb/proximity.png)](http://badge.fury.io/rb/proximity)
+[![Code Climate](https://codeclimate.com/github/adamhunter/proximity.png)](https://codeclimate.com/github/adamhunter/proximity)
+[![Build Status](https://travis-ci.org/adamhunter/proximity.png?branch=master)](https://travis-ci.org/adamhunter/proximity)
+[![Coverage Status](https://coveralls.io/repos/adamhunter/proximity/badge.png)](https://coveralls.io/r/adamhunter/proximity)
+[![Dependency Status](https://gemnasium.com/adamhunter/proximity.png)](https://gemnasium.com/adamhunter/proximity)
+
 ## Usage
 1. Create your own subclass of `Rack::Proxy`.
 2. `include Proximity` into that class.
@@ -17,7 +23,7 @@ vendored into `ActionPack` as of [`Rails`](https://github.com/rails/rails/tree/m
 ## Example
 ```ruby
 # my_proxy.rb
-class MyProxy < RackProxy
+class MyProxy < Rack::Proxy
   include Proximity
 end
 
