@@ -1,9 +1,8 @@
 # Proximity
 
 `Proximity` is a [`Rack::Proxy`](https://github.com/ncr/rack-proxy) router that uses 
-[`Journey`](https://github.com/rails/journey) for routing.  If `Rails` is loaded, 
-`Proximity` will use the copy of `Journey` vendored with 
-[`Rails`](https://github.com/rails/rails/tree/master/actionpack/lib/action_dispatch/journey).
+[`Journey`](https://github.com/rails/journey) for routing.  `Journey` is
+vendored into `ActionPack` as of [`Rails`](https://github.com/rails/rails/tree/master/actionpack/lib/action_dispatch/journey)4.
 
 ## Usage
 1. Create your own subclass of `Rack::Proxy`
