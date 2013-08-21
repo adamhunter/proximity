@@ -5,12 +5,18 @@ require 'pry'
 
 class SpecProxy < Rack::Proxy
   include Proximity
+
+  def self.routes
+    mock_routes
+  end
 end
 
 def mock_routes
-  Proximity::Router.new.tap { |router|
-    router.draw do
+  Proximity::RouteSet.new.tap { |r|
+    r.draw do
+      # self is RouteSet instance
       route 'example' => 'example.com/api' do
+        # self is ProxySet instance
         proxy 'active'                                  => 'are/you/active'
         proxy 'count'                                   => same
         proxy 'accounts'                                => same, formats: %w[json csv]

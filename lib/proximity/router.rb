@@ -1,14 +1,6 @@
 module Proximity
   class Router
 
-    def draw(&block)
-      scope.instance_exec(&block)
-    end
-
-    def scope
-      @scope ||= Class.new { include Scope }.new(self)
-    end
-
     def routes
       @routes ||= Routes.new
     end
@@ -26,22 +18,6 @@ module Proximity
 
     def router
       @router ||= Proximity.routerClass.new(routes, {})
-    end
-
-    module Scope
-      attr_accessor :router
-
-      def initialize(router)
-        self.router = router
-      end
-
-      def route(prefixes, &block)
-        source, target = Utils.source_and_target(prefixes)
-        route_set = RouteSet.new(router)
-        route_set.source = source
-        route_set.target = target
-        route_set.instance_eval(&block) if block_given?
-      end
     end
 
     class Match

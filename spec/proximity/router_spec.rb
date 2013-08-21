@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Proximity::Router do
 
-  let(:router) { mock_routes }
+  let(:route_set) { mock_routes }
+  let(:router)    { route_set.router }
 
   describe "parameters" do
     let(:match) { router.match 'PATH_INFO' => '/example/accounts/157/members/8932' }
