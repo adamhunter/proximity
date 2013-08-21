@@ -1,6 +1,28 @@
 # Proximity
 
-TODO: Write a gem description
+`Proximity` is a [`Rack::Proxy`](https://github.com/ncr/rack-proxy) router that uses 
+[`Journey`](https://github.com/rails/journey) for routing.  If `Rails` is loaded, 
+`Proximity` will use the copy of `Journey` vendored with 
+[`Rails`](https://github.com/rails/rails/tree/master/actionpack/lib/action_dispatch/journey).
+
+## Usage
+1. Create your own subclass of `Rack::Proxy`
+2. `include Proximity` into that class
+3. Define `rewrite_env` and `rewrite_response` as normal
+4. If you override `call`, ensure you call super
+5. Create your proxy routes in a `proxies.rb` file
+
+## Example
+```ruby
+# my_proxy.rb
+class MyProxy < RackProxy
+  include Proximity
+end
+
+# proxies.rb
+MyProxy.routes.draw do
+end
+```
 
 ## Installation
 
@@ -15,10 +37,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install proximity
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
