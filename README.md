@@ -5,11 +5,14 @@
 vendored into `ActionPack` as of [`Rails`](https://github.com/rails/rails/tree/master/actionpack/lib/action_dispatch/journey)4.
 
 ## Usage
-1. Create your own subclass of `Rack::Proxy`
-2. `include Proximity` into that class
-3. Define `rewrite_env` and `rewrite_response` as normal
-4. If you override `call`, ensure you call super
-5. Create your proxy routes in a `proxies.rb` file
+1. Create your own subclass of `Rack::Proxy`.
+2. `include Proximity` into that class.
+3. Define `rewrite_env` and `rewrite_response` as normal. `Proximity`
+   overrides `Rack::Proxy`'s call so your `env['HTTP_HOST']` and
+   `env['PATH_INFO']` will be changed before your call to `rewrite_env`.
+4. If you override `call`, ensure you call super.
+5. Create your proxy routes in a `proxies.rb` file and require it in your
+   application.
 
 ## Example
 ```ruby
