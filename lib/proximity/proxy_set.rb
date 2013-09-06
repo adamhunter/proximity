@@ -43,14 +43,13 @@ module Proximity
     end
 
     def normalize_source(source)
-      source = source.starts_with?('/') ? source : "/#{source}"
-      source = source.ends_with?('/')   ? source : "#{source}/"
+      source.starts_with?('/') ? source : "/#{source}"
     end
 
     def normalize_target(target)
       uri = URI.parse(target)
       target = uri.scheme.nil? ? "#{self.class.default_scheme}://#{target}" : target
-      env_tld target.ends_with?('/') ? target : "#{target}/"
+      env_tld target
     end
 
     def env_tld(url)

@@ -7,11 +7,11 @@ module Proximity
     end
 
     def target
-      with_format "#{route_set.target}#{@target == Same ? @source : @target}"
+      with_format "#{route_set.target}#{slashify determine_target}"
     end
 
     def source
-      with_format "#{route_set.source}#{@source}"
+      with_format "#{route_set.source}#{slashify @source}"
     end
 
     def pattern
@@ -24,8 +24,17 @@ module Proximity
 
     private
 
+    def slashify(path)
+      return if path.blank?
+      "/#{path}"
+    end
+
     def with_format(url)
       format.nil? ? url : "#{url}.#{format}"
+    end
+
+    def determine_target
+      @target == Same ? @source : @target
     end
 
     attr_reader :route_set

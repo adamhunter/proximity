@@ -32,6 +32,7 @@ def mock_routes
         proxy 'accounts'                                => same, formats: %w[json csv]
         proxy 'accounts/:account_id'                    => same
         proxy 'accounts/:account_id/members/:member_id' => 'accounts-members/:account_id-:member_id'
+        proxy ''                                        => same
       end
     end
   }

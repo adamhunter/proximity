@@ -5,9 +5,14 @@ describe Proximity::Proxy do
   let(:route)     { router.routes[0].proxy }
   let(:same)      { router.routes[1].proxy }
   let(:format)    { router.routes[2].proxy }
+  let(:blank)     { router.routes[6].proxy }
 
-  it "prefixes the source with the route set source" do
+  it "prefixes the source with the route set source and a slash" do
     expect(route.source).to eq('/example/active')
+  end
+
+  it "does not add a slash to the route set source if source is blank" do
+    expect(blank.source). to eq('/example')
   end
 
   it "prefixes the target with the route set target" do
