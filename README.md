@@ -59,3 +59,9 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Thanks
+
+1. Much goes to [TMA](http://www.tma1.com) for many awesome projects
+2. [wzcolon](https://github.com/wzcolon) for pairing with when gemifying this
+3. [nathanl](https://github.com/nathanl) for encouraging me to gemify this
