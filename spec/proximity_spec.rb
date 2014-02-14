@@ -28,7 +28,7 @@ describe Proximity do
 
     describe "http host" do
       it "is set based off the incoming route" do
-        expect(env['HTTP_HOST']).to eq('example.local')
+        expect(env['HTTP_HOST']).to eq('example.dev')
       end
     end
 

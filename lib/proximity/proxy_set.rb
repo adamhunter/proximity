@@ -53,7 +53,7 @@ module Proximity
     end
 
     def env_tld(url)
-      %w[development test].include?(Proximity.env) ? url.sub('.com', '.local') : url
+      %w[development test].include?(Proximity.env) ? url.sub('.com', '.dev') : url
     end
   end
 end

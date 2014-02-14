@@ -13,7 +13,7 @@ describe Proximity::Router do
     end
 
     it "will properly bind path parameters to the output" do
-      expect(match.target).to eq('http://example.local/api/accounts-members/157-8932')
+      expect(match.target).to eq('http://example.dev/api/accounts-members/157-8932')
     end
 
     describe "that do not match" do

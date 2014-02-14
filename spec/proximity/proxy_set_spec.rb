@@ -12,7 +12,7 @@ describe Proximity::ProxySet do
   end
 
   it "will set the target prefix on the route set" do
-    expect(proxy_set.target).to eq('http://example.local/api')
+    expect(proxy_set.target).to eq('http://example.dev/api')
   end
 
   it "will create a route with the given prefix for its source" do
@@ -20,17 +20,17 @@ describe Proximity::ProxySet do
   end
 
   it "will map the given prefix to the target prefix" do
-    expect(proxy.target).to eq('http://example.local/api/are/you/active')
+    expect(proxy.target).to eq('http://example.dev/api/are/you/active')
   end
 
 
   describe "protocol" do
     it "will be added to the target prefix if missing" do
-      expect(proxy_set.target).to eq('http://example.local/api')
+      expect(proxy_set.target).to eq('http://example.dev/api')
     end
 
     it "will not add a protocol if provided in the target prefix" do
-      target    = 'ftp://example.local/api/' 
+      target    = 'ftp://example.dev/api/' 
       proxy_set = described_class.new(route_set, 'example', target)
       expect(proxy_set.target).to eq(target)
     end
@@ -43,23 +43,23 @@ describe Proximity::ProxySet do
     context 'develepment' do
       let(:environment) { 'development' }
 
-      it "will convert .com into .local" do
-        expect(proxy_set.target).to eq('http://example.local/api')
+      it "will convert .com into .dev" do
+        expect(proxy_set.target).to eq('http://example.dev/api')
       end
     end
 
     context 'test' do
       let(:environment) { 'test' }
 
-      it "will convert .com into .local" do
-        expect(proxy_set.target).to eq('http://example.local/api')
+      it "will convert .com into .dev" do
+        expect(proxy_set.target).to eq('http://example.dev/api')
       end
     end
 
     context 'production' do
       let(:environment) { 'production' }
 
-      it "will not convert .com into .local" do
+      it "will not convert .com into .dev" do
         expect(proxy_set.target).to eq('http://example.com/api')
       end
     end
